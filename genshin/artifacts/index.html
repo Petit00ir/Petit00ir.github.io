@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>聖遺物</title>
+
+  <style>
+    @font-face {
+      font-family: "mainFont";
+      src: url("../../x12y16pxMaruMonica.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    :root {
+      --pink: #d94b8a;
+      --cyan: #4bbfd9;
+      --line: #f0cfe0;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: "mainFont", "Yu Gothic", sans-serif;
+      background: linear-gradient(180deg, #fff7fb, #f6fbff);
+      color: var(--pink);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 32px;
+    }
+
+    /* ▼ 全体レイアウト */
+    .character {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* ▼ 立ち絵 */
+    .character-img {
+      width: 100%;
+      max-width: 420px;
+      image-rendering: pixelated;
+    }
+
+    /* ▼ メモカード */
+    .memo-card {
+      position: relative;
+      padding: 24px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.8);
+      border: 3px dashed var(--line);
+    }
+
+    .memo-title {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+
+    .memo-main {
+      line-height: 1.8;
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+
+    .done {
+      color: var(--cyan);
+    }
+
+    /* ▼ 下段データ */
+    .memo-sub {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      border-top: 2px solid var(--line);
+      padding-top: 10px;
+    }
+
+    /* ▼ ドット装飾（星） */
+    .star {
+      position: absolute;
+      width: 32px;
+      image-rendering: pixelated;
+    }
+
+    .star1 { top: -10px; right: -10px; }
+    .star2 { bottom: -10px; left: -10px; }
+
+    a {
+      display: inline-block;
+      margin-top: 40px;
+      text-decoration: none;
+      color: var(--pink);
+    }
+
+    a:hover {
+      color: var(--cyan);
+    }
+
+  </style>
+</head>
+
+<body>
+
+<h1>せいいぶつ</h1>
+
+<div class="character">
+
+  <!-- ▼ 左：立ち絵 -->
+  <div>
+    <img class="character-img" src="../../item/Kachina.png" alt="カチーナ">
+  </div>
+
+  <!-- ▼ 右：メモ -->
+  <div class="memo-card">
+
+    <!-- ドット装飾 -->
+    <img class="star star1" src="../../item/sprite_10.png">
+    <img class="star star2" src="../../item/sprite_11.png">
+
+    <div class="memo-title">カチーナ</div>
+
+    <div class="memo-main">
+      防御 2030 → 目標 2200<br>
+      率 50.1 → 目標 100<br>
+      <span class="done">ダメ 200 → 達成</span>
+    </div>
+
+    <div class="memo-sub">
+      初期値（7.3-3.9-7.8が最大）<br>
+      ・花　6.6-2.7-7.8<br>
+      ・羽　6.6-2.7-7.8<br>
+      ・砂　0.0-3.9-7.0<br>
+      ・杯　5.8-0.0-7.8<br>
+      ・冠　5.8-3.5-0.0
+    </div>
+
+  </div>
+
+</div>
+
+<a href="../index.html">← もどる</a>
+
+</body>
+</html>
