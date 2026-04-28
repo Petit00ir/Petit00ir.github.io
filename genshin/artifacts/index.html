@@ -54,6 +54,12 @@
       text-align: center;
     }
 
+    /* ▼ カチーナ＋TOTAL */
+    .character-box {
+      position: relative;
+      display: inline-block;
+    }
+
     .character-img {
       width: 100%;
       max-width: 500px;
@@ -67,11 +73,33 @@
       filter: drop-shadow(0 10px 0 #f6d7e7);
     }
 
+    .total-hover {
+      position: absolute;
+      bottom: -32px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1rem;
+      background: var(--white);
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      padding: 4px 10px;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.15s;
+      white-space: nowrap;
+      color: var(--pink);
+    }
+
+    .character-box:hover .total-hover {
+      opacity: 1;
+    }
+
+    /* ▼ 聖遺物 */
     .artifact-row {
       display: flex;
       justify-content: center;
       gap: 14px;
-      margin-top: 16px;
+      margin-top: 20px;
       flex-wrap: wrap;
     }
 
@@ -114,19 +142,18 @@
       opacity: 1;
     }
 
+    /* ▼ メモ */
     .memo-card {
       padding: 26px;
       border: 4px dashed var(--line);
       border-radius: 14px;
       background: rgba(255, 255, 255, 0.75);
       box-shadow: 0 10px 0 #f6d7e7;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      transition: transform 0.18s ease;
     }
 
     .memo-card:hover {
       transform: translateY(-6px);
-      border-color: #f4b9d5;
-      box-shadow: 0 14px 0 #f6d7e7;
     }
 
     .memo-title {
@@ -169,10 +196,6 @@
       .character {
         grid-template-columns: 1fr;
       }
-
-      .character-img {
-        max-width: 420px;
-      }
     }
   </style>
 </head>
@@ -184,40 +207,44 @@
 
     <div class="character">
 
+      <!-- ▼ 左 -->
       <div class="left-area">
+
         <div class="character-box">
-  <img class="character-img" src="../../item/Kachina.png" alt="カチーナ">
-  <div class="total-hover">TOTAL：208.7</div>
-</div>
+          <img class="character-img" src="../../item/Kachina.png" alt="カチーナ">
+          <div class="total-hover">TOTAL：208.7</div>
+        </div>
 
         <div class="artifact-row">
           <div class="artifact-box">
-            <img class="artifact" src="../../item/Kokuyo/1_pixelart.png" alt="聖遺物1">
+            <img class="artifact" src="../../item/Kokuyo/1_pixelart.png">
             <div class="artifact-hover">47.8</div>
           </div>
 
           <div class="artifact-box">
-            <img class="artifact" src="../../item/Kokuyo/2_pixelart.png" alt="聖遺物2">
+            <img class="artifact" src="../../item/Kokuyo/2_pixelart.png">
             <div class="artifact-hover">52.8</div>
           </div>
 
           <div class="artifact-box">
-            <img class="artifact" src="../../item/Kokuyo/3_pixelart.png" alt="聖遺物3">
+            <img class="artifact" src="../../item/Kokuyo/3_pixelart.png">
             <div class="artifact-hover">35.0</div>
           </div>
 
           <div class="artifact-box">
-            <img class="artifact" src="../../item/Kokuyo/4_pixelart.png" alt="聖遺物4">
+            <img class="artifact" src="../../item/Kokuyo/4_pixelart.png">
             <div class="artifact-hover">36.9</div>
           </div>
 
           <div class="artifact-box">
-            <img class="artifact" src="../../item/Kokuyo/5_pixelart.png" alt="聖遺物5">
+            <img class="artifact" src="../../item/Kokuyo/5_pixelart.png">
             <div class="artifact-hover">36.2</div>
           </div>
         </div>
+
       </div>
 
+      <!-- ▼ 右 -->
       <div class="memo-card">
         <div class="memo-title">カチーナ</div>
 
