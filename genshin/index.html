@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>原神</title>
+
+  <style>
+    @font-face {
+      font-family: "mainFont";
+      src: url("../x12y16pxMaruMonica.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    :root {
+      --pink: #d94b8a;
+      --cyan: #4bbfd9;
+      --line: #f0cfe0;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "mainFont", "Yu Gothic", sans-serif;
+      color: var(--pink);
+      background:
+        radial-gradient(circle, rgba(217, 75, 138, 0.10) 1px, transparent 1px),
+        linear-gradient(180deg, #fff7fb 0%, #f6fbff 100%);
+      background-size: 18px 18px, 100% 100%;
+    }
+
+    .page {
+      width: min(820px, 90vw);
+      margin: 0 auto;
+      padding: 64px 0 80px;
+    }
+
+    h1 {
+      margin: 0 0 44px;
+      font-size: clamp(3rem, 9vw, 5.4rem);
+      letter-spacing: 0.08em;
+      color: var(--pink);
+      text-shadow:
+        3px 3px 0 var(--white),
+        -3px 3px 0 var(--white),
+        3px -3px 0 var(--white),
+        -3px -3px 0 var(--white),
+        0 6px 0 #f5c8dc;
+    }
+
+    .box {
+      padding: 26px;
+      border: 4px dashed var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.75);
+      box-shadow: 0 10px 0 #f6d7e7;
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      font-size: 1.6rem;
+    }
+
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--pink);
+      transition: 0.15s ease;
+    }
+
+    .list a {
+      display: inline-block;
+      padding: 10px 18px;
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      font-size: 1.4rem;
+      box-shadow: 0 4px 0 #f6d7e7;
+    }
+
+    .list a:hover,
+    .back:hover {
+      color: var(--cyan);
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 32px;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <h1>原神</h1>
+
+    <section class="box">
+      <div class="section-title">メニュー</div>
+
+      <div class="list">
+        <a href="artifacts/index.html">・せいいぶつ</a>
+        <a href="#">・原石計算</a>
+      </div>
+    </section>
+
+    <a class="back" href="../index.html">← もどる</a>
+
+  </main>
+</body>
+</html>
