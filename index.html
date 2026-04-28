@@ -15,11 +15,10 @@
     }
 
     :root {
-      --bg: #151322;
-      --text: #fff7fb;
-      --muted: #c9bfd8;
-      --cyan: #79e7ff;
-      --line: rgba(255, 255, 255, 0.18);
+      --bg: #fff7fb;           /* パステル背景 */
+      --pink: #d94b8a;         /* 黒寄りピンク */
+      --cyan: #4bbfd9;         /* 水色 */
+      --line: #f0cfe0;
     }
 
     * { box-sizing: border-box; }
@@ -28,60 +27,47 @@
       margin: 0;
       min-height: 100vh;
       font-family: "Yurumoji", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 20% 10%, rgba(255, 139, 214, 0.26), transparent 28%),
-        radial-gradient(circle at 80% 20%, rgba(121, 231, 255, 0.18), transparent 30%),
-        linear-gradient(135deg, #11101d 0%, #17142a 48%, #241b3d 100%);
+      background: linear-gradient(180deg, #fff7fb 0%, #f6fbff 100%);
+      color: var(--pink);
     }
 
     .page {
-      width: min(820px, 90vw);
+      width: min(800px, 90vw);
       margin: 0 auto;
       padding: 56px 0 72px;
     }
 
     h1 {
       margin: 0 0 40px;
-      font-size: clamp(2.8rem, 8vw, 5.2rem);
+      font-size: clamp(2.8rem, 8vw, 5rem);
       letter-spacing: 0.08em;
-      font-weight: normal;
-      text-shadow:
-        0 0 10px rgba(255, 139, 214, 0.65),
-        0 0 18px rgba(121, 231, 255, 0.35);
+      color: var(--pink);
     }
 
     .section-title {
-      margin: 20px 0 10px;
+      margin: 20px 0 14px;
       font-size: 1.6rem;
-    }
-
-    .list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .list li {
-      border-bottom: 1px solid var(--line);
-      padding: 14px 0;
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 6px;
     }
 
     .sub-list {
+      display: flex;           /* 横並び */
+      gap: 24px;               /* 間隔 */
       list-style: none;
-      padding-left: 20px;
-      margin: 8px 0 0;
+      padding: 0;
+      margin: 10px 0;
     }
 
     .sub-list li {
-      margin: 6px 0;
+      margin: 0;
     }
 
     a {
-      color: var(--text);
       text-decoration: none;
-      white-space: nowrap; /* 改行防止 */
+      font-size: 1.4rem;
+      color: var(--pink);
+      transition: 0.2s;
     }
 
     a:hover {
@@ -98,13 +84,9 @@
 
     <div class="section-title">ゲーム</div>
 
-    <ul class="list">
-      <li>
-        <ul class="sub-list">
-          <li><a href="nte/index.html">・NTE</a></li>
-          <li><a href="#">・原神</a></li>
-        </ul>
-      </li>
+    <ul class="sub-list">
+      <li><a href="nte/index.html">・NTE</a></li>
+      <li><a href="#">・原神</a></li>
     </ul>
 
   </main>
