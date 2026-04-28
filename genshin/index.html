@@ -6,36 +6,43 @@
 
   <style>
     @font-face {
-      font-family: "Yurumoji";
-      src: url("../YokohamaDotsJPN.otf") format("truetype");
+      font-family: "DotGothic";
+      src: url("../DotGothic16-Regular.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    :root {
+      --pink: #d94b8a;
+      --cyan: #4bbfd9;
+      --line: #f0cfe0;
     }
 
     body {
       margin: 0;
-      font-family: "Yurumoji", sans-serif;
-      background: linear-gradient(180deg, #fff7fb, #f6fbff);
-      color: #d94b8a;
       padding: 40px;
+      font-family: "DotGothic", "Yu Gothic", sans-serif;
+      background: linear-gradient(180deg, #fff7fb, #f6fbff);
+      color: var(--pink);
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
+      font-size: 2.8rem;
+      margin-bottom: 24px;
     }
 
     .list {
       display: flex;
-      gap: 20px;
-    }
-
-    a {
-      color: #d94b8a;
-      text-decoration: none;
+      gap: 24px;
       font-size: 1.4rem;
     }
 
+    a {
+      color: var(--pink);
+      text-decoration: none;
+    }
+
     a:hover {
-      color: #4bbfd9;
+      color: var(--cyan);
     }
   </style>
 </head>
@@ -45,7 +52,7 @@
 <h1>原神書庫</h1>
 
 <div class="list">
-  <a href="artifacts/index.html">・聖遺物</a>
+  <a href="artifacts/index.html">・せいいぶつ</a>
   <a href="#">・原石計算</a>
 </div>
 
