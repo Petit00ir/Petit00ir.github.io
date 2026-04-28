@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>聖遺物</title>
+  <title>せいいぶつ</title>
 
   <style>
     @font-face {
@@ -15,132 +15,152 @@
       --pink: #d94b8a;
       --cyan: #4bbfd9;
       --line: #f0cfe0;
+      --white: #ffffff;
     }
+
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      padding: 40px;
+      min-height: 100vh;
       font-family: "mainFont", "Yu Gothic", sans-serif;
-      background: linear-gradient(180deg, #fff7fb, #f6fbff);
       color: var(--pink);
+      background:
+        radial-gradient(circle, rgba(217, 75, 138, 0.10) 1px, transparent 1px),
+        linear-gradient(180deg, #fff7fb 0%, #f6fbff 100%);
+      background-size: 18px 18px, 100% 100%;
+    }
+
+    .page {
+      width: min(1180px, 92vw);
+      margin: 0 auto;
+      padding: 56px 0 72px;
     }
 
     h1 {
-      font-size: 2.8rem;
-      margin-bottom: 32px;
+      margin: 0 0 44px;
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      letter-spacing: 0.08em;
     }
 
-    /* ▼ 全体レイアウト */
     .character {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      align-items: start;
+      gap: 42px;
+      align-items: center;
     }
 
-    /* ▼ 立ち絵 */
     .character-img {
       width: 100%;
-      max-width: 420px;
+      max-width: 500px;
       image-rendering: pixelated;
+      transition: transform 0.18s ease, filter 0.18s ease;
+      cursor: pointer;
     }
 
-    /* ▼ メモカード */
+    .character-img:hover {
+      transform: translateY(-8px) rotate(-2deg) scale(1.03);
+      filter: drop-shadow(0 10px 0 #f6d7e7);
+    }
+
     .memo-card {
       position: relative;
-      padding: 24px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.8);
-      border: 3px dashed var(--line);
+      padding: 26px;
+      border: 4px dashed var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.75);
+      box-shadow: 0 10px 0 #f6d7e7;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .memo-card:hover {
+      transform: translateY(-6px);
+      border-color: #f4b9d5;
+      box-shadow: 0 14px 0 #f6d7e7;
     }
 
     .memo-title {
       font-size: 1.6rem;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
 
     .memo-main {
-      line-height: 1.8;
-      font-size: 1.2rem;
-      margin-bottom: 16px;
+      line-height: 1.9;
+      font-size: 1.15rem;
+      margin-bottom: 18px;
     }
 
     .done {
       color: var(--cyan);
     }
 
-    /* ▼ 下段データ */
     .memo-sub {
-      font-size: 1.05rem;
-      line-height: 1.7;
       border-top: 2px solid var(--line);
-      padding-top: 10px;
+      padding-top: 16px;
+      font-size: 1.05rem;
+      line-height: 1.8;
     }
-
-    /* ▼ ドット装飾（星） */
-    .star {
-      position: absolute;
-      width: 32px;
-      image-rendering: pixelated;
-    }
-
-    .star1 { top: -10px; right: -10px; }
-    .star2 { bottom: -10px; left: -10px; }
 
     a {
       display: inline-block;
       margin-top: 40px;
-      text-decoration: none;
       color: var(--pink);
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: transform 0.15s ease, color 0.15s ease;
     }
 
     a:hover {
       color: var(--cyan);
+      transform: translateY(-2px);
     }
 
+    @media (max-width: 850px) {
+      .character {
+        grid-template-columns: 1fr;
+      }
+
+      .character-img {
+        max-width: 420px;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <main class="page">
 
-<h1>せいいぶつ</h1>
+    <h1>せいいぶつ</h1>
 
-<div class="character">
+    <div class="character">
 
-  <!-- ▼ 左：立ち絵 -->
-  <div>
-    <img class="character-img" src="../../item/Kachina.png" alt="カチーナ">
-  </div>
+      <div>
+        <img class="character-img" src="../../item/Kachina.png" alt="カチーナ">
+      </div>
 
-  <!-- ▼ 右：メモ -->
-  <div class="memo-card">
+      <div class="memo-card">
+        <div class="memo-title">カチーナ</div>
 
-    <!-- ドット装飾 -->
-    <img class="star star1" src="../../item/sprite_10.png">
-    <img class="star star2" src="../../item/sprite_11.png">
+        <div class="memo-main">
+          防御 2030 → 目標 2200<br>
+          率 50.1 → 目標 100<br>
+          <span class="done">ダメ 200 → 達成</span>
+        </div>
 
-    <div class="memo-title">カチーナ</div>
+        <div class="memo-sub">
+          初期値（7.3-3.9-7.8が最大）<br>
+          ・花　6.6-2.7-7.8<br>
+          ・羽　6.6-2.7-7.8<br>
+          ・砂　0.0-3.9-7.0<br>
+          ・杯　5.8-0.0-7.8<br>
+          ・冠　5.8-3.5-0.0
+        </div>
+      </div>
 
-    <div class="memo-main">
-      防御 2030 → 目標 2200<br>
-      率 50.1 → 目標 100<br>
-      <span class="done">ダメ 200 → 達成</span>
     </div>
 
-    <div class="memo-sub">
-      初期値（7.3-3.9-7.8が最大）<br>
-      ・花　6.6-2.7-7.8<br>
-      ・羽　6.6-2.7-7.8<br>
-      ・砂　0.0-3.9-7.0<br>
-      ・杯　5.8-0.0-7.8<br>
-      ・冠　5.8-3.5-0.0
-    </div>
+    <a href="../index.html">← もどる</a>
 
-  </div>
-
-</div>
-
-<a href="../index.html">← もどる</a>
-
+  </main>
 </body>
 </html>
