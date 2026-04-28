@@ -2,27 +2,31 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>聖遺物</title>
+  <title>せいいぶつ</title>
 
   <style>
     @font-face {
-      font-family: "Yurumoji";
-      src: url("../../YokohamaDotsJPN.otf") format("truetype");
-      font-weight: normal;
-      font-style: normal;
-      font-display: block;
+      font-family: "DotGothic";
+      src: url("../../DotGothic16-Regular.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    :root {
+      --pink: #d94b8a;
+      --cyan: #4bbfd9;
+      --line: #f0cfe0;
     }
 
     body {
       margin: 0;
       padding: 40px;
-      font-family: "Yurumoji", "Yu Gothic", sans-serif;
+      font-family: "DotGothic", "Yu Gothic", sans-serif;
       background: linear-gradient(180deg, #fff7fb, #f6fbff);
-      color: #d94b8a;
+      color: var(--pink);
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       margin-bottom: 28px;
     }
 
@@ -40,7 +44,7 @@
     }
 
     .memo-box {
-      border: 2px solid #f0cfe0;
+      border: 2px solid var(--line);
       border-radius: 16px;
       padding: 16px 20px;
       background: #ffffffcc;
@@ -57,24 +61,23 @@
     }
 
     .done {
-      color: #4bbfd9;
+      color: var(--cyan);
     }
 
     .sub {
       margin-top: 14px;
       font-size: 1.1rem;
-      color: #d94b8a;
       line-height: 1.8;
     }
 
     a {
-      color: #d94b8a;
+      color: var(--pink);
       text-decoration: none;
       font-size: 1.2rem;
     }
 
     a:hover {
-      color: #4bbfd9;
+      color: var(--cyan);
     }
 
     @media (max-width: 800px) {
@@ -101,8 +104,8 @@
       <div class="memo-title">カチーナ</div>
 
       <div class="memo-list">
-        防御 2030 → 目標 2200<br>
-        率 50.1 → 目標 100<br>
+        ぼうぎょ 2030 → 目標 2200<br>
+        りつ 50.1 → 目標 100<br>
         <span class="done">ダメ 200 → 達成</span>
       </div>
 
