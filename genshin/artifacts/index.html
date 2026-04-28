@@ -20,3 +20,64 @@
       background: linear-gradient(180deg, #fff7fb, #f6fbff);
       color: #d94b8a;
     }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 28px;
+    }
+
+    .character {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 36px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .memo {
+      font-size: 1.3rem;
+      line-height: 2;
+    }
+
+    .done {
+      color: #4bbfd9;
+    }
+
+    a {
+      color: #d94b8a;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    a:hover {
+      color: #4bbfd9;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>せいいぶつ</h1>
+
+<div class="character">
+  <div>
+    <img src="images/kachina.png" alt="カチーナ">
+  </div>
+
+  <div class="memo">
+    カチーナ<br>
+    防御 2030 → 目標 2200<br>
+    率 50.1 → 目標 100<br>
+    <span class="done">ダメ 200 → 達成</span>
+  </div>
+</div>
+
+<a href="../index.html">← もどる</a>
+
+</body>
+</html>
