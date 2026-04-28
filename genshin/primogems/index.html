@@ -1,0 +1,128 @@
+<script>
+  const STORAGE_KEY = "picola_primogems_calculator";
+
+  const ids = [
+    "charaConstellation",
+    "weaponCount",
+    "targetDate",
+    "budget",
+    "dailyEnabled",
+    "welkinEnabled",
+    "trialCount",
+    "currentFate",
+    "currentStone",
+    "charaHistory",
+    "weaponHistory"
+  ];
+
+  window.addEventListener("DOMContentLoaded", () => {
+    loadData();
+
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      el.addEventListener("input", () => {
+        saveData();
+        calc();
+      });
+      el.addEventListener("change", () => {
+        saveData();
+        calc();
+      });
+    });
+
+    calc();
+  });
+
+  function num(id) {
+    return Number(document.getElementById(id).value) || 0;
+  }
+
+  function checked(id) {
+    return document.getElementById(id).checked;
+  }
+
+  function saveData() {
+    const data = {};
+
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      data[id] = el.type === "checkbox" ? el.checked : el.value;
+    });
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }
+
+  function loadData() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return;
+
+    const data = JSON.parse(saved);
+
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el || data[id] === undefined) return;
+
+      if (el.type === "checkbox") {
+        el.checked = data[id];
+      } else {
+        el.value = data[id];
+      }
+    });
+  }
+
+  function daysUntil(dateText) {
+    if (!dateText) return 0;
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const target = new Date(dateText);
+    target.setHours(0, 0, 0, 0);
+
+    const diff = target - today;
+    return Math.max(Math.ceil(diff / 86400000), 0);
+  }
+
+  function calc() {
+    const charaNeed = num("charaConstellation") * 180 * 160;
+    const weaponNeed = num("weaponCount") * 180 * 160;
+    const totalNeed = charaNeed + weaponNeed;
+
+    const remainDays = daysUntil(document.getElementById("targetDate").value);
+
+    const budgetStone = num("budget") / 12000 * 6480;
+    const dailyStone = checked("dailyEnabled") ? remainDays * 60 : 0;
+    const welkinStone = checked("welkinEnabled") ? remainDays * 90 : 0;
+    const trialStone = num("trialCount") * 20;
+
+    const currentFateStone = num("currentFate") * 160;
+    const currentStone = num("currentStone");
+
+    const charaHistoryStone = num("charaHistory") * 160;
+    const weaponHistoryStone = num("weaponHistory") * 160;
+
+    const obtained =
+      budgetStone +
+      dailyStone +
+      welkinStone +
+      trialStone +
+      currentFateStone +
+      currentStone +
+      charaHistoryStone +
+      weaponHistoryStone;
+
+    const shortage = Math.max(totalNeed - obtained, 0);
+    const stardustPull = shortage / 1600;
+
+    document.getElementById("remainDays").textContent = remainDays;
+    document.getElementById("totalNeed").textContent = Math.ceil(totalNeed).toLocaleString();
+    document.getElementById("obtained").textContent = Math.ceil(obtained).toLocaleString();
+    document.getElementById("shortage").textContent = Math.ceil(shortage).toLocaleString();
+    document.getElementById("stardustPull").textContent = stardustPull.toFixed(2);
+  }
+
+  function resetSavedData() {
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  }
+</script>
