@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>せいいぶつ</title>
+  <title>聖遺物</title>
 
   <style>
     @font-face {
@@ -50,6 +50,10 @@
       align-items: center;
     }
 
+    .left-area {
+      text-align: center;
+    }
+
     .character-img {
       width: 100%;
       max-width: 500px;
@@ -61,6 +65,53 @@
     .character-img:hover {
       transform: translateY(-8px) rotate(-2deg) scale(1.03);
       filter: drop-shadow(0 10px 0 #f6d7e7);
+    }
+
+    .artifact-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .artifact-box {
+      position: relative;
+      width: 70px;
+      height: 70px;
+    }
+
+    .artifact {
+      width: 70px;
+      image-rendering: pixelated;
+      transition: transform 0.15s ease, filter 0.15s ease;
+      cursor: pointer;
+    }
+
+    .artifact:hover {
+      transform: translateY(-6px) scale(1.1);
+      filter: drop-shadow(0 6px 0 #f6d7e7);
+    }
+
+    .artifact-hover {
+      position: absolute;
+      bottom: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.95rem;
+      background: var(--white);
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      padding: 3px 8px;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.15s;
+      white-space: nowrap;
+      color: var(--pink);
+    }
+
+    .artifact-box:hover .artifact-hover {
+      opacity: 1;
     }
 
     .memo-card {
@@ -100,36 +151,6 @@
       line-height: 1.8;
     }
 
-    .artifact-row {
-      display: flex;
-      gap: 18px;
-      margin-top: 28px;
-      flex-wrap: wrap;
-    }
-
-    .artifact-box {
-      width: 92px;
-      text-align: center;
-    }
-
-    .artifact {
-      width: 90px;
-      image-rendering: pixelated;
-      transition: transform 0.15s ease, filter 0.15s ease;
-      cursor: pointer;
-    }
-
-    .artifact:hover {
-      transform: translateY(-6px) scale(1.1);
-      filter: drop-shadow(0 6px 0 #f6d7e7);
-    }
-
-    .artifact-stat {
-      margin-top: 6px;
-      font-size: 0.85rem;
-      line-height: 1.3;
-    }
-
     a {
       display: inline-block;
       margin-top: 40px;
@@ -163,8 +184,35 @@
 
     <div class="character">
 
-      <div>
+      <div class="left-area">
         <img class="character-img" src="../../item/Kachina.png" alt="カチーナ">
+
+        <div class="artifact-row">
+          <div class="artifact-box">
+            <img class="artifact" src="../../item/Kokuyo/1_pixelart.png" alt="聖遺物1">
+            <div class="artifact-hover">47.8</div>
+          </div>
+
+          <div class="artifact-box">
+            <img class="artifact" src="../../item/Kokuyo/2_pixelart.png" alt="聖遺物2">
+            <div class="artifact-hover">52.8</div>
+          </div>
+
+          <div class="artifact-box">
+            <img class="artifact" src="../../item/Kokuyo/3_pixelart.png" alt="聖遺物3">
+            <div class="artifact-hover">35.0</div>
+          </div>
+
+          <div class="artifact-box">
+            <img class="artifact" src="../../item/Kokuyo/4_pixelart.png" alt="聖遺物4">
+            <div class="artifact-hover">36.9</div>
+          </div>
+
+          <div class="artifact-box">
+            <img class="artifact" src="../../item/Kokuyo/5_pixelart.png" alt="聖遺物5">
+            <div class="artifact-hover">36.2</div>
+          </div>
+        </div>
       </div>
 
       <div class="memo-card">
@@ -184,34 +232,6 @@
           ・杯　5.8-0.0-7.8<br>
           ・冠　5.8-3.5-0.0
         </div>
-
-        <div class="artifact-row">
-          <div class="artifact-box">
-            <img class="artifact" src="../../item/Kokuyo/1_pixelart.png" alt="花">
-            <div class="artifact-stat">花<br>6.6-2.7-7.8</div>
-          </div>
-
-          <div class="artifact-box">
-            <img class="artifact" src="../../item/Kokuyo/2_pixelart.png" alt="羽">
-            <div class="artifact-stat">羽<br>6.6-2.7-7.8</div>
-          </div>
-
-          <div class="artifact-box">
-            <img class="artifact" src="../../item/Kokuyo/3_pixelart.png" alt="砂">
-            <div class="artifact-stat">砂<br>0.0-3.9-7.0</div>
-          </div>
-
-          <div class="artifact-box">
-            <img class="artifact" src="../../item/Kokuyo/4_pixelart.png" alt="杯">
-            <div class="artifact-stat">杯<br>5.8-0.0-7.8</div>
-          </div>
-
-          <div class="artifact-box">
-            <img class="artifact" src="../../item/Kokuyo/5_pixelart.png" alt="冠">
-            <div class="artifact-stat">冠<br>5.8-3.5-0.0</div>
-          </div>
-        </div>
-
       </div>
 
     </div>
