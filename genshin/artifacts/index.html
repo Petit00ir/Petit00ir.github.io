@@ -313,7 +313,11 @@
 
       document.getElementById("characterImage").src = data.image;
       document.getElementById("characterImage").alt = data.name;
-      document.getElementById("totalScore").textContent = `TOTAL：${data.total}`;
+      const total = data.artifacts.reduce((sum, artifact) => {
+      return sum + Number(artifact.score);
+      }, 0);
+
+      document.getElementById("totalScore").textContent = `TOTAL：${total.toFixed(1)}`;
 
       document.getElementById("memoTitle").textContent = data.name;
       document.getElementById("memoMain").innerHTML = data.memoMain;
