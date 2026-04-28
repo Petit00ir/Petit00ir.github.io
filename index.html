@@ -53,6 +53,12 @@
         0 0 18px rgba(121, 231, 255, 0.35);
     }
 
+    .section-title {
+      margin: 30px 0 10px;
+      font-size: 1.4rem;
+      color: var(--muted);
+    }
+
     .link-list {
       margin: 0;
       padding: 0;
@@ -64,8 +70,7 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .link-list a,
-    .link-list .disabled {
+    .link-list a {
       display: grid;
       grid-template-columns: 2.4rem 1fr;
       gap: 14px;
@@ -73,9 +78,6 @@
       padding: 20px 4px;
       color: var(--text);
       text-decoration: none;
-    }
-
-    .link-list a {
       transition: transform 0.2s ease, color 0.2s ease;
     }
 
@@ -92,17 +94,26 @@
     .title {
       display: block;
       font-size: 1.7rem;
-      margin-bottom: 6px;
     }
 
-    .desc {
-      display: block;
-      color: var(--muted);
-      font-size: 0.95rem;
+    .sub-list {
+      margin: 0;
+      padding-left: 40px;
+      list-style: none;
     }
 
-    .disabled {
-      opacity: 0.55;
+    .sub-list li {
+      margin: 6px 0;
+    }
+
+    .sub-list a {
+      color: var(--text);
+      text-decoration: none;
+      opacity: 0.9;
+    }
+
+    .sub-list a:hover {
+      color: var(--cyan);
     }
   </style>
 </head>
@@ -112,38 +123,19 @@
 
     <h1>ぺちこのへや</h1>
 
+    <div class="section-title">ゲーム</div>
+
     <ul class="link-list">
-
       <li>
-        <a href="nte/index.html">
-          <span class="icon">📚</span>
-          <span>
-            <span class="title">NTE書庫</span>
-            <span class="desc">ストーリー文字起こしを本棚みたいにまとめる場所。</span>
-          </span>
-        </a>
-      </li>
-
-      <li>
-        <div class="disabled">
-          <span class="icon">🧸</span>
-          <span>
-            <span class="title">準備中</span>
-            <span class="desc">あとで追加するまとめ用の入口。</span>
-          </span>
+        <div class="icon">🎮</div>
+        <div>
+          <span class="title">ゲーム</span>
+          <ul class="sub-list">
+            <li><a href="nte/index.html">・NTE</a></li>
+            <li><a href="#">・原神</a></li>
+          </ul>
         </div>
       </li>
-
-      <li>
-        <div class="disabled">
-          <span class="icon">✦</span>
-          <span>
-            <span class="title">準備中</span>
-            <span class="desc">別ジャンルの記録やメモを置く場所。</span>
-          </span>
-        </div>
-      </li>
-
     </ul>
 
   </main>
