@@ -2,53 +2,43 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>picola</title>
+<title>ぺちのおうち</title>
 
 <style>
-  a{
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 5px;
-  padding: 6px 12px;
-  background: #f3dede;
-  border-radius: 10px;
-  color: #5a4a4a;
-  font-size: 14px;
-}
-
-a:hover{
-  background: #eacaca;
-}
 @font-face {
   font-family: 'yurumoji';
   src: url('yurumoji.ttf') format('truetype');
 }
+
 body{
   background:#fff6f8;
-}
-
-.box{
-  border:2px solid #f2b6c1;
-  background:#ffffff;
-}
-
-.title{
-  background:#f2b6c1;
-}
-
-a{
-  background:#e59aa8;
+  font-family:'yurumoji', sans-serif;
   color:#5a4a57;
+  margin:0;
+}
+
+/* リンク */
+a{
+  text-decoration:none;
+  display:inline-block;
+  margin-top:5px;
+  padding:6px 12px;
+  background:#e59aa8;
+  border-radius:10px;
+  color:#5a4a57;
+  font-size:14px;
 }
 
 a:hover{
   background:#d97b8b;
 }
+
 /* タイトル */
 header{
   text-align:center;
   padding:40px 0;
 }
+
 header h1{
   font-size:32px;
   margin:0;
@@ -62,11 +52,11 @@ header h1{
 
 /* 共通ボックス */
 .box{
-  border:2px solid #e5cfcf;
+  border:2px solid #f2b6c1;
   border-radius:15px;
   padding:20px;
   margin-bottom:20px;
-  background:white;
+  background:#ffffff;
 }
 
 /* おしらせ */
@@ -97,7 +87,7 @@ header h1{
 
 /* 見出し */
 .title{
-  background:#f3dede;
+  background:#f2b6c1;
   padding:5px 10px;
   border-radius:10px;
   display:inline-block;
@@ -115,7 +105,6 @@ header h1{
 
 <div class="container">
 
-  <!-- リリース -->
   <div class="box release">
     <div class="title">おしらせ</div>
     <p>・サイトをつくったよ</p>
@@ -123,19 +112,19 @@ header h1{
 
   <div class="grid">
 
-    <!-- こんにちは -->
     <div class="box profile">
       <div class="title">こんにちは</div>
       <p>おえかきとパソコンがすきです</p>
-    <p>
-  <a href="https://x.com/pech_yuimar" target="_blank">X</a>
-</p>
-<p>
-  <a href="https://www.instagram.com/pech_yuimar?igsh=dXQ2eWJxem8wZTE0&utm_source=qr" target="_blank">Instagram</a>
-</p>
+
+      <p>
+        <a href="https://x.com/pech_yuimar" target="_blank">X</a>
+      </p>
+
+      <p>
+        <a href="https://www.instagram.com/pech_yuimar?igsh=dXQ2eWJxem8wZTE0&utm_source=qr" target="_blank">Instagram</a>
+      </p>
     </div>
 
-    <!-- 右側 -->
     <div class="right">
 
       <div class="box item">
