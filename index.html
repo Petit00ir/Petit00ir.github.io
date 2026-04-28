@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>picola</title>
+
+<style>
+body{
+  background:#fdf7f5;
+  font-family: "Arial", sans-serif;
+  color:#5a4a4a;
+  margin:0;
+}
+
+/* タイトル */
+header{
+  text-align:center;
+  padding:40px 0;
+}
+header h1{
+  font-size:32px;
+  margin:0;
+}
+
+/* 全体枠 */
+.container{
+  width:900px;
+  margin:0 auto;
+}
+
+/* 共通ボックス */
+.box{
+  border:2px solid #e5cfcf;
+  border-radius:15px;
+  padding:20px;
+  margin-bottom:20px;
+  background:white;
+}
+
+/* リリースノート */
+.release{
+  height:120px;
+}
+
+/* 下段レイアウト */
+.grid{
+  display:flex;
+  gap:20px;
+}
+
+/* 自己紹介 */
+.profile{
+  width:250px;
+}
+
+/* 右側 */
+.right{
+  flex:1;
+}
+
+.item{
+  height:80px;
+  margin-bottom:15px;
+}
+
+/* 見出し */
+.title{
+  background:#f3dede;
+  padding:5px 10px;
+  border-radius:10px;
+  display:inline-block;
+  margin-bottom:10px;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>ぴこらのポータルサイト</h1>
+</header>
+
+<div class="container">
+
+  <!-- リリース -->
+  <div class="box release">
+    <div class="title">リリースノート</div>
+    <p>・サイトを作りました</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- 自己紹介 -->
+    <div class="box profile">
+      <div class="title">自己紹介</div>
+      <p>ぴこら</p>
+      <p>イラストとドット絵が好きです</p>
+    </div>
+
+    <!-- 右側 -->
+    <div class="right">
+
+      <div class="box item">
+        <div class="title">趣味のページ</div>
+      </div>
+
+      <div class="box item">
+        <div class="title">お品書き</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
