@@ -7,21 +7,20 @@
   <style>
     @font-face {
       font-family: "Yurumoji";
-      src: url("fonts/yurumoji.ttf") format("truetype");
+      src: url("./fonts/yurumoji.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
       font-display: swap;
     }
 
     :root {
       --bg: #151322;
-      --bg-soft: #211d35;
-      --card: rgba(255, 255, 255, 0.08);
-      --card-border: rgba(255, 255, 255, 0.16);
       --text: #fff7fb;
       --muted: #c9bfd8;
       --pink: #ff8bd6;
       --cyan: #79e7ff;
       --lavender: #b9a7ff;
-      --cream: #fff0c8;
+      --line: rgba(255, 255, 255, 0.18);
       --shadow: rgba(0, 0, 0, 0.35);
     }
 
@@ -35,114 +34,84 @@
       font-family: "Yurumoji", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 20% 10%, rgba(255, 139, 214, 0.28), transparent 28%),
-        radial-gradient(circle at 80% 20%, rgba(121, 231, 255, 0.2), transparent 30%),
+        radial-gradient(circle at 20% 10%, rgba(255, 139, 214, 0.26), transparent 28%),
+        radial-gradient(circle at 80% 20%, rgba(121, 231, 255, 0.18), transparent 30%),
         linear-gradient(135deg, #11101d 0%, #17142a 48%, #241b3d 100%);
     }
 
     .page {
-      width: min(1040px, 92vw);
+      width: min(820px, 90vw);
       margin: 0 auto;
       padding: 56px 0 72px;
     }
 
     header {
-      text-align: center;
-      margin-bottom: 44px;
-    }
-
-    .logo {
-      display: inline-block;
-      padding: 12px 28px 16px;
-      border: 2px solid var(--card-border);
-      border-radius: 28px;
-      background: rgba(255, 255, 255, 0.07);
-      box-shadow: 0 18px 40px var(--shadow), inset 0 0 20px rgba(255, 255, 255, 0.04);
+      margin-bottom: 42px;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(2.4rem, 7vw, 5rem);
+      font-size: clamp(2.8rem, 8vw, 5.2rem);
       letter-spacing: 0.08em;
+      font-weight: normal;
       text-shadow:
         0 0 10px rgba(255, 139, 214, 0.65),
         0 0 18px rgba(121, 231, 255, 0.35);
     }
 
-    .room-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
+    .link-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--line);
     }
 
-    .room-card {
-      position: relative;
-      display: block;
-      min-height: 190px;
-      padding: 22px;
-      border: 1px solid var(--card-border);
-      border-radius: 26px;
+    .link-list li {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .link-list a,
+    .link-list .disabled {
+      display: grid;
+      grid-template-columns: 2.4rem 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 20px 4px;
       color: var(--text);
       text-decoration: none;
-      background:
-        linear-gradient(160deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04)),
-        var(--card);
-      box-shadow: 0 16px 34px var(--shadow);
-      overflow: hidden;
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .room-card::before {
-      content: "";
-      position: absolute;
-      inset: auto -20px -32px auto;
-      width: 130px;
-      height: 130px;
-      border-radius: 999px;
-      background: var(--accent, var(--pink));
-      opacity: 0.18;
-      filter: blur(2px);
+    .link-list a {
+      transition: transform 0.2s ease, color 0.2s ease;
     }
 
-    .room-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(255, 255, 255, 0.36);
-      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.46);
+    .link-list a:hover {
+      transform: translateX(6px);
+      color: var(--cyan);
     }
 
-    .room-icon {
-      font-size: 2.2rem;
-      margin-bottom: 18px;
+    .icon {
+      font-size: 1.6rem;
+      line-height: 1.2;
+      text-align: center;
     }
 
-    .room-card h2 {
-      margin: 0 0 10px;
+    .title {
+      display: block;
       font-size: 1.7rem;
       letter-spacing: 0.04em;
+      margin-bottom: 6px;
     }
 
-    .room-card p {
-      margin: 0;
+    .desc {
+      display: block;
       color: var(--muted);
       line-height: 1.7;
       font-size: 0.98rem;
     }
 
-    .nte {
-      --accent: var(--cyan);
-    }
-
-    .coming-soon {
-      --accent: var(--lavender);
-      opacity: 0.7;
-      pointer-events: none;
-    }
-
-    .footer-note {
-      margin-top: 34px;
-      color: var(--muted);
-      text-align: center;
-      font-size: 0.92rem;
+    .disabled {
+      opacity: 0.55;
     }
 
     @media (max-width: 540px) {
@@ -150,8 +119,15 @@
         padding-top: 36px;
       }
 
-      .room-card {
-        min-height: 160px;
+      .link-list a,
+      .link-list .disabled {
+        grid-template-columns: 2rem 1fr;
+        gap: 10px;
+        padding: 18px 0;
+      }
+
+      .title {
+        font-size: 1.45rem;
       }
     }
   </style>
@@ -159,32 +135,40 @@
 <body>
   <main class="page">
     <header>
-      <div class="logo">
-        <h1>ぺちこのへや</h1>
-      </div>
+      <h1>ぺちこのへや</h1>
     </header>
 
-    <section class="room-grid" aria-label="まとめリンク一覧">
-      <a class="room-card nte" href="nte/index.html">
-        <div class="room-icon">📚</div>
-        <h2>NTE書庫</h2>
-        <p>ストーリー文字起こしを本棚みたいにまとめる場所。</p>
-      </a>
+    <ul class="link-list" aria-label="まとめリンク一覧">
+      <li>
+        <a href="nte/index.html">
+          <span class="icon">📚</span>
+          <span>
+            <span class="title">NTE書庫</span>
+            <span class="desc">ストーリー文字起こしを本棚みたいにまとめる場所。</span>
+          </span>
+        </a>
+      </li>
 
-      <div class="room-card coming-soon">
-        <div class="room-icon">🧸</div>
-        <h2>準備中</h2>
-        <p>あとで追加するまとめ用の入口。</p>
-      </div>
+      <li>
+        <div class="disabled">
+          <span class="icon">🧸</span>
+          <span>
+            <span class="title">準備中</span>
+            <span class="desc">あとで追加するまとめ用の入口。</span>
+          </span>
+        </div>
+      </li>
 
-      <div class="room-card coming-soon">
-        <div class="room-icon">✦</div>
-        <h2>準備中</h2>
-        <p>別ジャンルの記録やメモを置く場所。</p>
-      </div>
-    </section>
-
-    <p class="footer-note">リンクを増やしたいときは、カードを1つコピーして追加します。</p>
+      <li>
+        <div class="disabled">
+          <span class="icon">✦</span>
+          <span>
+            <span class="title">準備中</span>
+            <span class="desc">別ジャンルの記録やメモを置く場所。</span>
+          </span>
+        </div>
+      </li>
+    </ul>
   </main>
 </body>
 </html>
