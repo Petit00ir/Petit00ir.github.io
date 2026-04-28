@@ -22,9 +22,7 @@
       --line: rgba(255, 255, 255, 0.18);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -54,67 +52,42 @@
     }
 
     .section-title {
-      margin: 30px 0 10px;
-      font-size: 1.4rem;
-      color: var(--muted);
+      margin: 20px 0 10px;
+      font-size: 1.6rem;
     }
 
-    .link-list {
-      margin: 0;
-      padding: 0;
+    .list {
       list-style: none;
+      padding: 0;
+      margin: 0;
       border-top: 1px solid var(--line);
     }
 
-    .link-list li {
+    .list li {
       border-bottom: 1px solid var(--line);
-    }
-
-    .link-list a {
-      display: grid;
-      grid-template-columns: 2.4rem 1fr;
-      gap: 14px;
-      align-items: start;
-      padding: 20px 4px;
-      color: var(--text);
-      text-decoration: none;
-      transition: transform 0.2s ease, color 0.2s ease;
-    }
-
-    .link-list a:hover {
-      transform: translateX(6px);
-      color: var(--cyan);
-    }
-
-    .icon {
-      font-size: 1.6rem;
-      text-align: center;
-    }
-
-    .title {
-      display: block;
-      font-size: 1.7rem;
+      padding: 14px 0;
     }
 
     .sub-list {
-      margin: 0;
-      padding-left: 40px;
       list-style: none;
+      padding-left: 20px;
+      margin: 8px 0 0;
     }
 
     .sub-list li {
       margin: 6px 0;
     }
 
-    .sub-list a {
+    a {
       color: var(--text);
       text-decoration: none;
-      opacity: 0.9;
+      white-space: nowrap; /* 改行防止 */
     }
 
-    .sub-list a:hover {
+    a:hover {
       color: var(--cyan);
     }
+
   </style>
 </head>
 
@@ -125,16 +98,12 @@
 
     <div class="section-title">ゲーム</div>
 
-    <ul class="link-list">
+    <ul class="list">
       <li>
-        <div class="icon">🎮</div>
-        <div>
-          <span class="title">ゲーム</span>
-          <ul class="sub-list">
-            <li><a href="nte/index.html">・NTE</a></li>
-            <li><a href="#">・原神</a></li>
-          </ul>
-        </div>
+        <ul class="sub-list">
+          <li><a href="nte/index.html">・NTE</a></li>
+          <li><a href="#">・原神</a></li>
+        </ul>
       </li>
     </ul>
 
