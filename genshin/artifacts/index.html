@@ -39,13 +39,32 @@
       border-radius: 12px;
     }
 
-    .memo {
-      font-size: 1.3rem;
+    .memo-box {
+      border: 2px solid #f0cfe0;
+      border-radius: 16px;
+      padding: 16px 20px;
+      background: #ffffffcc;
+    }
+
+    .memo-title {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .memo-list {
       line-height: 2;
+      font-size: 1.2rem;
     }
 
     .done {
       color: #4bbfd9;
+    }
+
+    .sub {
+      margin-top: 14px;
+      font-size: 1.1rem;
+      color: #d94b8a;
+      line-height: 1.8;
     }
 
     a {
@@ -57,6 +76,12 @@
     a:hover {
       color: #4bbfd9;
     }
+
+    @media (max-width: 800px) {
+      .character {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -65,16 +90,34 @@
 <h1>せいいぶつ</h1>
 
 <div class="character">
+
   <div>
-    <img src="./images/kachina.jpg" alt="カチーナ">
+    <img src="images/kachina.jpg" alt="カチーナ">
   </div>
 
-  <div class="memo">
-    カチーナ<br>
-    防御 2030 → 目標 2200<br>
-    率 50.1 → 目標 100<br>
-    <span class="done">ダメ 200 → 達成</span>
+  <div>
+    <div class="memo-box">
+
+      <div class="memo-title">カチーナ</div>
+
+      <div class="memo-list">
+        ぼうぎょ 2030 → 目標 2200<br>
+        りつ 50.1 → 目標 100<br>
+        <span class="done">ダメ 200 → 達成</span>
+      </div>
+
+      <div class="sub">
+        初期値（7.3-3.9-7.8が最大）<br>
+        ・花　6.6-2.7-7.8<br>
+        ・羽　6.6-2.7-7.8<br>
+        ・砂　0.0-3.9-7.0<br>
+        ・杯　5.8-0.0-7.8<br>
+        ・冠　5.8-3.5-0.0
+      </div>
+
+    </div>
   </div>
+
 </div>
 
 <a href="../index.html">← もどる</a>
