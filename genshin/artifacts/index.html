@@ -38,18 +38,54 @@
     }
 
     h1 {
-  margin: 0 0 44px;
-  font-size: clamp(2.8rem, 8vw, 5rem);
-  letter-spacing: 0.08em;
-  color: var(--pink);
+      margin: 0 0 34px;
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      letter-spacing: 0.08em;
+      color: var(--pink);
+      text-shadow:
+        3px 3px 0 var(--white),
+        -3px 3px 0 var(--white),
+        3px -3px 0 var(--white),
+        -3px -3px 0 var(--white),
+        0 6px 0 #f5c8dc;
+    }
 
-  text-shadow:
-    3px 3px 0 var(--white),
-    -3px 3px 0 var(--white),
-    3px -3px 0 var(--white),
-    -3px -3px 0 var(--white),
-    0 6px 0 #f5c8dc;
-}
+    .character-icons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 38px;
+      flex-wrap: wrap;
+    }
+
+    .icon-button {
+      width: 76px;
+      height: 76px;
+      padding: 6px;
+      border: 4px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 6px 0 #f6d7e7;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .icon-button img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      image-rendering: pixelated;
+    }
+
+    .icon-button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 0 #f6d7e7;
+    }
+
+    .icon-button.active {
+      border-color: var(--pink);
+      background: #fff7fb;
+    }
 
     .character {
       display: grid;
@@ -62,7 +98,6 @@
       text-align: center;
     }
 
-    /* ▼ カチーナ＋TOTAL */
     .character-box {
       position: relative;
       display: inline-block;
@@ -85,22 +120,16 @@
       position: absolute;
       top: 12px;
       left: 12px;
-      transform: none;
-
       font-size: 1.2rem;
       font-weight: bold;
-
       background: rgba(255, 247, 251, 0.95);
       border: 2px solid var(--line);
       border-radius: 10px;
       padding: 6px 12px;
-
       color: var(--pink);
-
       opacity: 0;
       pointer-events: none;
       transition: 0.15s;
-
       box-shadow: 0 4px 0 #f6d7e7;
     }
 
@@ -108,7 +137,6 @@
       opacity: 1;
     }
 
-    /* ▼ 聖遺物 */
     .artifact-row {
       display: flex;
       justify-content: center;
@@ -156,7 +184,6 @@
       opacity: 1;
     }
 
-    /* ▼ メモ */
     .memo-card {
       padding: 26px;
       border: 4px dashed var(--line);
@@ -210,6 +237,10 @@
       .character {
         grid-template-columns: 1fr;
       }
+
+      .artifact-hover {
+        opacity: 1;
+      }
     }
   </style>
 </head>
@@ -219,63 +250,29 @@
 
     <h1>聖遺物</h1>
 
+    <div class="character-icons">
+      <button class="icon-button active" data-character="kachina">
+        <img src="../../item/Chara/Kachina-icon.png" alt="カチーナ">
+      </button>
+    </div>
+
     <div class="character">
 
-      <!-- ▼ 左 -->
       <div class="left-area">
 
         <div class="character-box">
-          <img class="character-img" src="../../item/Chara/Kachina.png" alt="カチーナ">
-          <div class="total-hover">TOTAL：208.7</div>
+          <img id="characterImage" class="character-img" src="" alt="">
+          <div id="totalScore" class="total-hover"></div>
         </div>
 
-        <div class="artifact-row">
-          <div class="artifact-box">
-            <img class="artifact" src="../../item/Emaki/1_pixelart.png">
-            <div class="artifact-hover">47.8</div>
-          </div>
-
-          <div class="artifact-box">
-            <img class="artifact" src="../../item/Emaki/2_pixelart.png">
-            <div class="artifact-hover">52.8</div>
-          </div>
-
-          <div class="artifact-box">
-            <img class="artifact" src="../../item/Emaki/3_pixelart.png">
-            <div class="artifact-hover">35.0</div>
-          </div>
-
-          <div class="artifact-box">
-            <img class="artifact" src="../../item/Emaki/4_pixelart.png">
-            <div class="artifact-hover">36.9</div>
-          </div>
-
-          <div class="artifact-box">
-            <img class="artifact" src="../../item/Emaki/5_pixelart.png">
-            <div class="artifact-hover">36.2</div>
-          </div>
-        </div>
+        <div id="artifactRow" class="artifact-row"></div>
 
       </div>
 
-      <!-- ▼ 右 -->
       <div class="memo-card">
-        <div class="memo-title">カチーナ</div>
-
-        <div class="memo-main">
-          防御 2030 → 目標 2200<br>
-          率 50.1 → 目標 100<br>
-          <span class="done">ダメ 200 → 達成</span>
-        </div>
-
-        <div class="memo-sub">
-          初期値（7.3-3.9-7.8が最大）<br>
-          ・花　6.6-2.7-7.8<br>
-          ・羽　6.6-2.7-7.8<br>
-          ・砂　0.0-3.9-7.0<br>
-          ・杯　5.8-0.0-7.8<br>
-          ・冠　5.8-3.5-0.0
-        </div>
+        <div id="memoTitle" class="memo-title"></div>
+        <div id="memoMain" class="memo-main"></div>
+        <div id="memoSub" class="memo-sub"></div>
       </div>
 
     </div>
@@ -283,5 +280,74 @@
     <a href="../index.html">← もどる</a>
 
   </main>
+
+  <script>
+    const characters = {
+      kachina: {
+        name: "カチーナ",
+        image: "../../item/Chara/Kachina.png",
+        icon: "../../item/Chara/Kachina-icon.png",
+        total: "208.7",
+        artifacts: [
+          { image: "../../item/Emaki/1_pixelart.png", score: "47.8", alt: "花" },
+          { image: "../../item/Emaki/2_pixelart.png", score: "52.8", alt: "羽" },
+          { image: "../../item/Emaki/3_pixelart.png", score: "35.0", alt: "砂" },
+          { image: "../../item/Emaki/4_pixelart.png", score: "36.9", alt: "杯" },
+          { image: "../../item/Emaki/5_pixelart.png", score: "36.2", alt: "冠" }
+        ],
+        memoMain: `
+          防御 2030 → 目標 2200<br>
+          率 50.1 → 目標 100<br>
+          <span class="done">ダメ 200 → 達成</span>
+        `,
+        memoSub: `
+          初期値（7.3-3.9-7.8が最大）<br>
+          ・花　6.6-2.7-7.8<br>
+          ・羽　6.6-2.7-7.8<br>
+          ・砂　0.0-3.9-7.0<br>
+          ・杯　5.8-0.0-7.8<br>
+          ・冠　5.8-3.5-0.0
+        `
+      }
+    };
+
+    function showCharacter(characterId) {
+      const data = characters[characterId];
+
+      if (!data) return;
+
+      document.getElementById("characterImage").src = data.image;
+      document.getElementById("characterImage").alt = data.name;
+      document.getElementById("totalScore").textContent = `TOTAL：${data.total}`;
+
+      document.getElementById("memoTitle").textContent = data.name;
+      document.getElementById("memoMain").innerHTML = data.memoMain;
+      document.getElementById("memoSub").innerHTML = data.memoSub;
+
+      const artifactRow = document.getElementById("artifactRow");
+      artifactRow.innerHTML = "";
+
+      data.artifacts.forEach(artifact => {
+        artifactRow.innerHTML += `
+          <div class="artifact-box">
+            <img class="artifact" src="${artifact.image}" alt="${data.name} ${artifact.alt}">
+            <div class="artifact-hover">${artifact.score}</div>
+          </div>
+        `;
+      });
+
+      document.querySelectorAll(".icon-button").forEach(button => {
+        button.classList.toggle("active", button.dataset.character === characterId);
+      });
+    }
+
+    document.querySelectorAll(".icon-button").forEach(button => {
+      button.addEventListener("click", () => {
+        showCharacter(button.dataset.character);
+      });
+    });
+
+    showCharacter("kachina");
+  </script>
 </body>
 </html>
