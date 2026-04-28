@@ -12,6 +12,7 @@
     }
 
     :root {
+      --bg: #fff7fb;
       --pink: #d94b8a;
       --cyan: #4bbfd9;
       --line: #f0cfe0;
@@ -76,32 +77,30 @@
     }
 
     .list a {
-  display: inline-block; /* これ重要（transform効かせるため） */
-  padding: 10px 18px;
-  border: 2px solid var(--line);
-  border-radius: 999px;
-  background: var(--white);
-  font-size: 1.4rem;
+      display: inline-block;
+      padding: 10px 18px;
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      font-size: 1.4rem;
+      box-shadow: 0 4px 0 #f6d7e7;
+    }
 
-  box-shadow: 0 4px 0 #f6d7e7;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
-}
-
-.list a:hover {
-  color: var(--cyan);
-  transform: translateY(-3px);          /* 浮く */
-  box-shadow: 0 8px 0 #f6d7e7;          /* 影も上げる */
-}
-
-.list a:active {
-  transform: translateY(2px);           /* 押した感 */
-  box-shadow: 0 2px 0 #f6d7e7;
-}
+    .list a:hover {
+      color: var(--cyan);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 #d8f3fa;
+    }
 
     .back {
       display: inline-block;
-      margin-top: 32px;
+      margin-top: 34px;
       font-size: 1.2rem;
+    }
+
+    .back:hover {
+      color: var(--cyan);
+      transform: translateY(-2px);
     }
   </style>
 </head>
@@ -112,7 +111,7 @@
     <h1>原神</h1>
 
     <section class="box">
-      <div class="section-title">ツール</div>
+      <div class="section-title">メニュー</div>
 
       <div class="list">
         <a href="artifacts/index.html">・聖遺物</a>
