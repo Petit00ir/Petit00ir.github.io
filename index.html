@@ -1,145 +1,190 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>ぺちのおうち</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ぺちこのへや</title>
+  <style>
+    @font-face {
+      font-family: "Yurumoji";
+      src: url("fonts/yurumoji.ttf") format("truetype");
+      font-display: swap;
+    }
 
-<style>
-@font-face {
-  font-family: 'yurumoji';
-  src: url('yurumoji.ttf') format('truetype');
-}
+    :root {
+      --bg: #151322;
+      --bg-soft: #211d35;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-border: rgba(255, 255, 255, 0.16);
+      --text: #fff7fb;
+      --muted: #c9bfd8;
+      --pink: #ff8bd6;
+      --cyan: #79e7ff;
+      --lavender: #b9a7ff;
+      --cream: #fff0c8;
+      --shadow: rgba(0, 0, 0, 0.35);
+    }
 
-body{
-  background:#fff6f8;
-  font-family:'yurumoji', sans-serif;
-  color:#5a4a57;
-  margin:0;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-/* リンク */
-a{
-  text-decoration:none;
-  display:inline-block;
-  margin-top:5px;
-  padding:6px 12px;
-  background:#e59aa8;
-  border-radius:10px;
-  color:#5a4a57;
-  font-size:14px;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Yurumoji", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255, 139, 214, 0.28), transparent 28%),
+        radial-gradient(circle at 80% 20%, rgba(121, 231, 255, 0.2), transparent 30%),
+        linear-gradient(135deg, #11101d 0%, #17142a 48%, #241b3d 100%);
+    }
 
-a:hover{
-  background:#d97b8b;
-}
+    .page {
+      width: min(1040px, 92vw);
+      margin: 0 auto;
+      padding: 56px 0 72px;
+    }
 
-/* タイトル */
-header{
-  text-align:center;
-  padding:40px 0;
-}
+    header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
 
-header h1{
-  font-size:32px;
-  margin:0;
-}
+    .logo {
+      display: inline-block;
+      padding: 12px 28px 16px;
+      border: 2px solid var(--card-border);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.07);
+      box-shadow: 0 18px 40px var(--shadow), inset 0 0 20px rgba(255, 255, 255, 0.04);
+    }
 
-/* 全体枠 */
-.container{
-  width:900px;
-  margin:0 auto;
-}
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      letter-spacing: 0.08em;
+      text-shadow:
+        0 0 10px rgba(255, 139, 214, 0.65),
+        0 0 18px rgba(121, 231, 255, 0.35);
+    }
 
-/* 共通ボックス */
-.box{
-  border:2px solid #f2b6c1;
-  border-radius:15px;
-  padding:20px;
-  margin-bottom:20px;
-  background:#ffffff;
-}
+    .room-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
 
-/* おしらせ */
-.release{
-  height:120px;
-}
+    .room-card {
+      position: relative;
+      display: block;
+      min-height: 190px;
+      padding: 22px;
+      border: 1px solid var(--card-border);
+      border-radius: 26px;
+      color: var(--text);
+      text-decoration: none;
+      background:
+        linear-gradient(160deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04)),
+        var(--card);
+      box-shadow: 0 16px 34px var(--shadow);
+      overflow: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
 
-/* 下段レイアウト */
-.grid{
-  display:flex;
-  gap:20px;
-}
+    .room-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -20px -32px auto;
+      width: 130px;
+      height: 130px;
+      border-radius: 999px;
+      background: var(--accent, var(--pink));
+      opacity: 0.18;
+      filter: blur(2px);
+    }
 
-/* こんにちは */
-.profile{
-  width:250px;
-}
+    .room-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.36);
+      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.46);
+    }
 
-/* 右側 */
-.right{
-  flex:1;
-}
+    .room-icon {
+      font-size: 2.2rem;
+      margin-bottom: 18px;
+    }
 
-.item{
-  height:80px;
-  margin-bottom:15px;
-}
+    .room-card h2 {
+      margin: 0 0 10px;
+      font-size: 1.7rem;
+      letter-spacing: 0.04em;
+    }
 
-/* 見出し */
-.title{
-  background:#f2b6c1;
-  padding:5px 10px;
-  border-radius:10px;
-  display:inline-block;
-  margin-bottom:10px;
-  font-size:14px;
-}
-</style>
+    .room-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
+
+    .nte {
+      --accent: var(--cyan);
+    }
+
+    .coming-soon {
+      --accent: var(--lavender);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .footer-note {
+      margin-top: 34px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 540px) {
+      .page {
+        padding-top: 36px;
+      }
+
+      .room-card {
+        min-height: 160px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <main class="page">
+    <header>
+      <div class="logo">
+        <h1>ぺちこのへや</h1>
+      </div>
+    </header>
 
-<header>
-  <h1>ぺちのおうち</h1>
-</header>
+    <section class="room-grid" aria-label="まとめリンク一覧">
+      <a class="room-card nte" href="nte/index.html">
+        <div class="room-icon">📚</div>
+        <h2>NTE書庫</h2>
+        <p>ストーリー文字起こしを本棚みたいにまとめる場所。</p>
+      </a>
 
-<div class="container">
-
-  <div class="box release">
-    <div class="title">おしらせ</div>
-    <p>・サイトをつくったよ</p>
-  </div>
-
-  <div class="grid">
-
-    <div class="box profile">
-      <div class="title">こんにちは</div>
-      <p>おえかきとパソコンがすきです</p>
-
-      <p>
-        <a href="https://x.com/pech_yuimar" target="_blank">X</a>
-      </p>
-
-      <p>
-        <a href="https://www.instagram.com/pech_yuimar?igsh=dXQ2eWJxem8wZTE0&utm_source=qr" target="_blank">Instagram</a>
-      </p>
-    </div>
-
-    <div class="right">
-
-      <div class="box item">
-        <div class="title">いろいろ</div>
+      <div class="room-card coming-soon">
+        <div class="room-icon">🧸</div>
+        <h2>準備中</h2>
+        <p>あとで追加するまとめ用の入口。</p>
       </div>
 
-      <div class="box item">
-        <div class="title">おしながき</div>
+      <div class="room-card coming-soon">
+        <div class="room-icon">✦</div>
+        <h2>準備中</h2>
+        <p>別ジャンルの記録やメモを置く場所。</p>
       </div>
+    </section>
 
-    </div>
-
-  </div>
-
-</div>
-
+    <p class="footer-note">リンクを増やしたいときは、カードを1つコピーして追加します。</p>
+  </main>
 </body>
 </html>
