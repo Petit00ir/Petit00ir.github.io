@@ -7,17 +7,15 @@
 
   <style>
     @font-face {
-      font-family: "Yurumoji";
-      src: url("./yurumoji.ttf") format("truetype");
-      font-weight: normal;
-      font-style: normal;
-      font-display: block;
+      font-family: "Yokohama";
+      src: url("./YokohamaDotsJPN.otf") format("opentype");
+      font-display: swap;
     }
 
     :root {
-      --bg: #fff7fb;           /* パステル背景 */
-      --pink: #d94b8a;         /* 黒寄りピンク */
-      --cyan: #4bbfd9;         /* 水色 */
+      --bg: #fff7fb;
+      --pink: #d94b8a;
+      --cyan: #4bbfd9;
       --line: #f0cfe0;
     }
 
@@ -26,7 +24,7 @@
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: "Yurumoji", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+      font-family: "Yokohama", "Yu Gothic", sans-serif;
       background: linear-gradient(180deg, #fff7fb 0%, #f6fbff 100%);
       color: var(--pink);
     }
@@ -52,15 +50,11 @@
     }
 
     .sub-list {
-      display: flex;           /* 横並び */
-      gap: 24px;               /* 間隔 */
+      display: flex;
+      gap: 24px;
       list-style: none;
       padding: 0;
       margin: 10px 0;
-    }
-
-    .sub-list li {
-      margin: 0;
     }
 
     a {
@@ -73,13 +67,11 @@
     a:hover {
       color: var(--cyan);
     }
-
   </style>
 </head>
 
 <body>
   <main class="page">
-
     <h1>ぺちこのへや</h1>
 
     <div class="section-title">ゲーム</div>
@@ -89,7 +81,6 @@
       <li><a href="genshin/index.html">・原神</a></li>
       <li><a href="#">・スタレ</a></li>
     </ul>
-
   </main>
 </body>
 </html>
