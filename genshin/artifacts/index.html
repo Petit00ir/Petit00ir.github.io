@@ -75,19 +75,25 @@
 
     .total-hover {
       position: absolute;
-      bottom: -32px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 1rem;
-      background: var(--white);
+      top: 12px;
+      left: 12px;
+      transform: none;
+
+      font-size: 1.2rem;
+      font-weight: bold;
+
+      background: rgba(255, 247, 251, 0.95);
       border: 2px solid var(--line);
-      border-radius: 8px;
-      padding: 4px 10px;
+      border-radius: 10px;
+      padding: 6px 12px;
+
+      color: var(--pink);
+
       opacity: 0;
       pointer-events: none;
       transition: 0.15s;
-      white-space: nowrap;
-      color: var(--pink);
+
+      box-shadow: 0 4px 0 #f6d7e7;
     }
 
     .character-box:hover .total-hover {
