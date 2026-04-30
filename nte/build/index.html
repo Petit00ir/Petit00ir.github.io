@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>NTE ビルド確認ツール</title>
+
+  <style>
+    body {
+      background: #fff7fb;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+
+    input {
+      padding: 8px;
+      margin: 5px;
+    }
+
+    .card {
+      margin-top: 20px;
+      padding: 20px;
+      border: 2px solid #f0cfe0;
+      display: inline-block;
+      background: white;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>NTE ビルド確認ツール</h1>
+
+<div>
+  <input id="name" placeholder="キャラ名">
+  <input id="atk" placeholder="攻撃力">
+  <input id="crit" placeholder="会心率">
+  <input id="critdmg" placeholder="会心ダメ">
+  <br>
+  <button onclick="createCard()">作成</button>
+</div>
+
+<div id="result"></div>
+
+<script>
+function createCard() {
+  const name = document.getElementById("name").value;
+  const atk = document.getElementById("atk").value;
+  const crit = document.getElementById("crit").value;
+  const critdmg = document.getElementById("critdmg").value;
+
+  document.getElementById("result").innerHTML = `
+    <div class="card">
+      <h2>${name}</h2>
+      <p>攻撃力: ${atk}</p>
+      <p>会心率: ${crit}%</p>
+      <p>会心ダメ: ${critdmg}%</p>
+    </div>
+  `;
+}
+</script>
+
+</body>
+</html>
