@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "mainFont";
+  src: url("./x12y16pxMaruMonica.ttf") format("truetype");
+  font-display: swap;
+}
+
 :root {
   --bg: #fff7fb;
   --pink: #d94b8a;
