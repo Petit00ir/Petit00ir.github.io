@@ -155,3 +155,42 @@ td {
 th {
   color: var(--pink);
 }
+
+#genshinList table {
+  table-layout: fixed;
+}
+
+#genshinList th:nth-child(1),
+#genshinList td:nth-child(1) {
+  width: 12%;
+}
+
+#genshinList th:nth-child(2),
+#genshinList td:nth-child(2) {
+  width: 18%;
+}
+
+#genshinList th:nth-child(3),
+#genshinList td:nth-child(3) {
+  width: 18%;
+}
+
+#genshinList th:nth-child(4),
+#genshinList td:nth-child(4) {
+  width: 22%;
+}
+
+#genshinList th:nth-child(5),
+#genshinList td:nth-child(5) {
+  width: 20%;
+}
+
+#genshinList th:nth-child(6),
+#genshinList td:nth-child(6) {
+  width: 10%;
+}
+
+#genshinList td {
+  word-break: break-word;
+  line-height: 1.75;
+}
