@@ -24,7 +24,7 @@ body {
     radial-gradient(circle at top left, var(--cyan-soft), transparent 32rem),
     var(--bg);
   color: var(--text);
-  font-family: "Yu Gothic", "Meiryo", sans-serif;
+  font-family: "mainFont", "Yu Gothic", "Meiryo", sans-serif;
   letter-spacing: 0.02em;
 }
 
