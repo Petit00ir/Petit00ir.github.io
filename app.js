@@ -80,6 +80,30 @@ function formatShortDate(value) {
     String(date.getDate()).padStart(2, '0');
 }
 
+function renderArtifactScores(row) {
+  return [
+    row.artifactScoreFlower,
+    row.artifactScorePlume,
+    row.artifactScoreSands,
+    row.artifactScoreGoblet,
+    row.artifactScoreCirclet
+  ].filter(Boolean).join('／');
+}
+
+function renderStats(row) {
+  const parts = [];
+
+  if (row.def) parts.push('防御' + row.def);
+  if (row.atk) parts.push('攻撃' + row.atk);
+  if (row.hp) parts.push('HP' + row.hp);
+  if (row.em) parts.push('熟知' + row.em);
+  if (row.critRate) parts.push('率' + row.critRate);
+  if (row.critDmg) parts.push('ダメ' + row.critDmg);
+  if (row.er) parts.push('元チャ' + row.er);
+
+  return parts.join('／');
+}
+
 function renderGenshinRows(rows) {
   const el = document.getElementById('genshinList');
 
@@ -101,31 +125,23 @@ function renderGenshinRows(rows) {
         </tr>
       </thead>
       <tbody>
-        ${rows.map(r => `
+        ${rows.map(row => `
           <tr>
             <td>
-              <strong>${esc(r.characterJaName || r.characterName)}</strong><br>
-              ${esc(r.characterName)}
+              <strong>${esc(row.characterJaName || row.characterName)}</strong><br>
+              ${esc(row.characterName)}
             </td>
             <td>
-              ${esc(r.weapon)}<br>
-              Lv${esc(r.weaponLevel)} / R${esc(r.refinement)}
+              ${esc(row.weapon)}<br>
+              Lv${esc(row.weaponLevel)} / R${esc(row.refinement)}
             </td>
+            <td>${esc(renderArtifactScores(row))}</td>
             <td>
-              ${esc([
-                r.artifactScoreFlower,
-                r.artifactScorePlume,
-                r.artifactScoreSands,
-                r.artifactScoreGoblet,
-                r.artifactScoreCirclet
-              ].filter(Boolean).join('／'))}
+              元素：${esc(row.elementType)}<br>
+              ${esc(renderStats(row))}
             </td>
-            <td>
-              元素：${esc(r.elementType)}<br>
-              防御${esc(r.def)}／率${esc(r.critRate)}／ダメ${esc(r.critDmg)}／元チャ${esc(r.er)}
-            </td>
-            <td>${esc(r.memo)}</td>
-            <td>${esc(formatShortDate(r.updatedAt))}</td>
+            <td>${esc(row.memo)}</td>
+            <td>${esc(formatShortDate(row.updatedAt))}</td>
           </tr>
         `).join('')}
       </tbody>
@@ -139,7 +155,13 @@ document.getElementById('pingButton').addEventListener('click', async () => {
 
   try {
     const data = await callPotalApi('ping');
-    result.textContent = JSON.stringify(data, null, 2);
+
+    if (!data.ok) {
+      result.textContent = data.error || '接続に失敗しました。';
+      return;
+    }
+
+    result.textContent = '接続成功：POTAL API connected';
   } catch (err) {
     result.textContent = err.message;
   }
@@ -155,19 +177,17 @@ document.getElementById('loadGenshinButton').addEventListener('click', async () 
   try {
     const data = await callPotalApi('getGenshinCurrent');
 
-    result.textContent = JSON.stringify(data, null, 2);
-
     if (!data.ok) {
+      result.textContent = data.error || '取得に失敗しました。';
       list.textContent = data.error || '取得に失敗しました。';
       return;
     }
 
-    renderGenshinRows(data.rows || []);
+    const rows = data.rows || [];
+    result.textContent = '取得成功：' + rows.length + '件';
+    renderGenshinRows(rows);
   } catch (err) {
     result.textContent = err.message;
     list.textContent = err.message;
   }
 });
-
-
-
