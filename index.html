@@ -38,8 +38,17 @@
 
     <section id="page-genshin" class="page">
       <div class="card">
-        <h2>原神</h2>
-        <p class="muted">Apps Script API 接続は次の段階で追加します。</p>
+        <h2>原神：API接続確認</h2>
+        <div class="actions">
+          <button type="button" id="pingButton">接続テスト</button>
+          <button type="button" id="loadGenshinButton">原神データ取得</button>
+        </div>
+        <pre id="apiResult">未接続</pre>
+      </div>
+    
+      <div class="card">
+        <h2>原神：キャラ別 最新状態</h2>
+        <div id="genshinList" class="muted">未取得</div>
       </div>
     </section>
 
