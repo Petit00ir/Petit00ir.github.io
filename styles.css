@@ -162,27 +162,27 @@ th {
 
 #genshinList th:nth-child(1),
 #genshinList td:nth-child(1) {
-  width: 12%;
+  width: 11%;
 }
 
 #genshinList th:nth-child(2),
 #genshinList td:nth-child(2) {
-  width: 18%;
+  width: 16%;
 }
 
 #genshinList th:nth-child(3),
 #genshinList td:nth-child(3) {
-  width: 18%;
+  width: 16%;
 }
 
 #genshinList th:nth-child(4),
 #genshinList td:nth-child(4) {
-  width: 22%;
+  width: 20%;
 }
 
 #genshinList th:nth-child(5),
 #genshinList td:nth-child(5) {
-  width: 20%;
+  width: 27%;
 }
 
 #genshinList th:nth-child(6),
