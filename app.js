@@ -94,9 +94,6 @@ function renderStats(row) {
   const parts = [];
 
   if (row.def) parts.push('防御' + row.def);
-  if (row.atk) parts.push('攻撃' + row.atk);
-  if (row.hp) parts.push('HP' + row.hp);
-  if (row.em) parts.push('熟知' + row.em);
   if (row.critRate) parts.push('率' + row.critRate);
   if (row.critDmg) parts.push('ダメ' + row.critDmg);
   if (row.er) parts.push('元チャ' + row.er);
