@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POTAL</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">personal game archive</p>
+      <h1>POTAL</h1>
+    </div>
+
+    <nav class="nav">
+      <button type="button" data-page="home" class="active">ホーム</button>
+      <button type="button" data-page="genshin">原神</button>
+      <button type="button" data-page="kancolle">艦これ</button>
+      <button type="button" data-page="settings">設定</button>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <section id="page-home" class="page active">
+      <div class="home-grid">
+        <article class="card">
+          <h2>原神</h2>
+          <p>キャラ別に育成状況を記録し、現在のビルド状態を見返すためのページです。</p>
+        </article>
+
+        <article class="card">
+          <h2>艦これ</h2>
+          <p>育成状況、残り経験値、周回数、所要時間の目安を記録するページです。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="page-genshin" class="page">
+      <div class="card">
+        <h2>原神</h2>
+        <p class="muted">Apps Script API 接続は次の段階で追加します。</p>
+      </div>
+    </section>
+
+    <section id="page-kancolle" class="page">
+      <div class="card">
+        <h2>艦これ</h2>
+        <p class="muted">後で移植します。</p>
+      </div>
+    </section>
+
+    <section id="page-settings" class="page">
+      <div class="card">
+        <h2>設定</h2>
+        <p class="muted">後で移植します。</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
