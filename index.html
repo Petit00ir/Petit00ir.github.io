@@ -3,70 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>POTAL</title>
-  <link rel="stylesheet" href="./styles.css">
+  <title>POTAL お引越し</title>
+  <style>
+    @font-face {
+      font-family: "mainFont";
+      src: url("./x12y16pxMaruMonica.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    :root {
+      --bg: #fff7fb;
+      --pink: #d94b8a;
+      --cyan: #4bbfd9;
+      --line: #f0cfe0;
+      --text: #4c3440;
+      --muted: #8f6d7d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(75, 191, 217, 0.18), transparent 32rem),
+        var(--bg);
+      color: var(--text);
+      font-family: "mainFont", "Yu Gothic", "Meiryo", sans-serif;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: min(720px, 100%);
+      border: 2px solid var(--line);
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.82);
+      padding: 42px 34px;
+      text-align: center;
+      box-shadow: 0 18px 45px rgba(217, 75, 138, 0.12);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--cyan);
+      font-size: 14px;
+    }
+
+    h1 {
+      margin: 0 0 20px;
+      color: var(--pink);
+      font-size: clamp(42px, 8vw, 72px);
+      line-height: 1;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      color: var(--pink);
+      font-size: 28px;
+    }
+
+    p {
+      margin: 0 0 26px;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 16px;
+    }
+
+    .button {
+      display: inline-block;
+      border: 2px dashed var(--pink);
+      border-radius: 999px;
+      padding: 14px 28px;
+      background: rgba(217, 75, 138, 0.08);
+      color: var(--pink);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .button:hover {
+      background: rgba(217, 75, 138, 0.16);
+    }
+
+    .url {
+      margin-top: 22px;
+      font-size: 12px;
+      color: var(--muted);
+      word-break: break-all;
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div>
-      <p class="eyebrow">personal game archive</p>
-      <h1>POTAL</h1>
-    </div>
+  <main class="card">
+    <p class="eyebrow">personal game archive</p>
+    <h1>POTAL</h1>
 
-    <nav class="nav">
-      <button type="button" data-page="home" class="active">ホーム</button>
-      <button type="button" data-page="genshin">原神</button>
-      <button type="button" data-page="kancolle">艦これ</button>
-      <button type="button" data-page="settings">設定</button>
-    </nav>
-  </header>
+    <h2>お引越ししました</h2>
 
-  <main class="layout">
-    <section id="page-home" class="page active">
-      <div class="home-grid">
-        <article class="card">
-          <h2>原神</h2>
-          <p>キャラ別に育成状況を記録し、現在のビルド状態を見返すためのページです。</p>
-        </article>
+    <p>
+      POTAL本体はGoogle Apps Script版へ移動しました。<br>
+      下のボタンから開いてください。
+    </p>
 
-        <article class="card">
-          <h2>艦これ</h2>
-          <p>育成状況、残り経験値、周回数、所要時間の目安を記録するページです。</p>
-        </article>
-      </div>
-    </section>
+    <a
+      class="button"
+      href="https://script.google.com/macros/s/AKfycbw-K0EzIxiStt34alC2oGzdsdXOVsbEHgMPADZSR8lnbHl42mrrx3JcoTrMCKSSSn4I/exec"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Googleポータルを開く
+    </a>
 
-    <section id="page-genshin" class="page">
-      <div class="card">
-        <h2>原神：API接続確認</h2>
-        <div class="actions">
-          <button type="button" id="pingButton">接続テスト</button>
-          <button type="button" id="loadGenshinButton">原神データ取得</button>
-        </div>
-        <pre id="apiResult">未接続</pre>
-      </div>
-    
-      <div class="card">
-        <h2>原神：キャラ別 最新状態</h2>
-        <div id="genshinList" class="muted">未取得</div>
-      </div>
-    </section>
-
-    <section id="page-kancolle" class="page">
-      <div class="card">
-        <h2>艦これ</h2>
-        <p class="muted">後で移植します。</p>
-      </div>
-    </section>
-
-    <section id="page-settings" class="page">
-      <div class="card">
-        <h2>設定</h2>
-        <p class="muted">後で移植します。</p>
-      </div>
-    </section>
+    <p class="url">
+      https://script.google.com/macros/s/AKfycbw-K0EzIxiStt34alC2oGzdsdXOVsbEHgMPADZSR8lnbHl42mrrx3JcoTrMCKSSSn4I/exec
+    </p>
   </main>
-
-  <script src="./app.js"></script>
 </body>
 </html>
