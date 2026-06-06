@@ -200,3 +200,26 @@ th {
   word-break: break-word;
   line-height: 1.75;
 }
+
+#genshinList {
+  font-size: 14px;
+}
+
+#genshinList th {
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+#genshinList td {
+  font-size: 14px;
+  line-height: 1.65;
+  vertical-align: middle;
+}
+
+#genshinList td:nth-child(3) {
+  line-height: 1.55;
+}
+
+#genshinList td:nth-child(3) br {
+  line-height: 1.2;
+}
